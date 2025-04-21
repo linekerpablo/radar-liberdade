@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radar de Liberdade</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #ffd700;
+      color: #000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #222;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🧭 Radar de Liberdade — Expondo o mau uso do dinheiro público
+  </header>
+
+  <div id="map"></div>
+
+  <footer>
+    🚀 Criado por Você — Quer usar isso no seu movimento? <a href="#">Entre em contato</a>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const dadosGastos = [
+  {
+    "cidade": "Rio de Janeiro",
+    "descricao": "Juíza recebeu R$ 1,1 milhão em um único mês antes da aposentadoria, incluindo penduricalhos e benefícios acumulados.",
+    "valor": 1100000,
+    "latitude": -22.9068,
+    "longitude": -43.1729,
+    "fonte": "https://elpais.com/america/2024-06-02/supersalarios-la-clave-de-que-el-gasto-de-brasil-en-el-poder-judicial-sea-seis-veces-el-de-francia.html"
+  },
+  {
+    "cidade": "Igarapé Grande (MA)",
+    "descricao": "Município registrou 12,7 mil radiografias de dedo em um ano, superando sua população de 11,5 mil habitantes, levantando suspeitas de fraude.",
+    "valor": 12700,
+    "latitude": -4.6625,
+    "longitude": -44.8556,
+    "fonte": "https://pt.wikipedia.org/wiki/Or%C3%A7amento_secreto"
+  },
+  {
+    "cidade": "Rio Branco (AC)",
+    "descricao": "Operação Ptolomeu investiga desvio de mais de R$ 800 milhões em contratos públicos durante o governo estadual.",
+    "valor": 800000000,
+    "latitude": -9.97499,
+    "longitude": -67.8243,
+    "fonte": "https://pt.wikipedia.org/wiki/Gladson_Cameli"
+  },
+  {
+    "cidade": "Vitorino Freire (MA)",
+    "descricao": "Ministro das Comunicações utilizou R$ 5 milhões do orçamento secreto para asfaltar estrada que passa em frente à sua fazenda.",
+    "valor": 5000000,
+    "latitude": -4.2225,
+    "longitude": -45.2431,
+    "fonte": "https://pt.wikipedia.org/wiki/Governo_Lula_(2023–presente)"
+  },
+  {
+    "cidade": "Brasília (DF)",
+    "descricao": "Deltan Dallagnol e outros procuradores foram condenados a devolver R$ 2,8 milhões por gastos irregulares com diárias e passagens na Lava Jato.",
+    "valor": 2800000,
+    "latitude": -15.7939,
+    "longitude": -47.8828,
+    "fonte": "https://pt.wikipedia.org/wiki/Deltan_Dallagnol"
+  }
+]
+;
+
+    const map = L.map('map').setView([-15.793889, -47.882778], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    dadosGastos.forEach(gasto => {
+      const popupContent = `
+        <strong>${gasto.cidade}</strong><br/>
+        ${gasto.descricao}<br/>
+        <strong>Valor:</strong> R$ ${gasto.valor.toLocaleString('pt-BR')}<br/>
+        <a href="${gasto.fonte}" target="_blank">Ver fonte oficial</a>
+      `;
+
+      L.marker([gasto.latitude, gasto.longitude])
+        .addTo(map)
+        .bindPopup(popupContent);
+    });
+  </script>
+</body>
+</html>
