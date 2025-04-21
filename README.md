@@ -37,8 +37,9 @@ Através de um mapa interativo com dados reais, o projeto permite que qualquer c
 Se você faz parte do **MBL**, de algum outro movimento liberal ou apenas se interessou pela ideia, entre em contato comigo:
 
 📧 **linekerpablo@gmail.com**  
-🔗 [LinkedIn](https://www.linkedin.com/in/SEU-USUARIO) *(adicione se quiser)*  
-🐦 [Twitter](https://twitter.com/SEU-USUARIO) *(opcional)*
+🔗 [LinkedIn](https://www.linkedin.com/in/linekerpablo/)
+🐦 [Instagram](https://instagram.com/LinekerSilvaa)
+🐦 [X](https://x.com/LinekerSilvaa)
 
 Estou aberto a colaborações, melhorias ou convites para levar esse projeto ainda mais longe.
 
